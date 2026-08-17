@@ -21,17 +21,18 @@ body{
 }
 
 #survey-form{
-    width: 400px;
+    width: 35%;
     margin: 0 auto;
     margin-bottom: 25px;
     padding: 20px;
     border-radius: 5px;
     background-color: rgba(16, 40, 95, 0.76);
     box-shadow: 0 2px 5px #111;
+    font-family: Arial, sans-serif;
 
 }
 
-input{
+input, textarea{
     width: 100%;
     box-sizing: border-box;
     padding: 6px 12px;
@@ -42,9 +43,11 @@ input{
 
 .form_input{
     margin-bottom: 25px;
+    font-family: Arial, sans-serif;
+
 }
 
-.form_input label input, .form_input label select{
+.form_input label input, .form_input label select, .form_input textarea{
     margin-top: 5px;
 }
 
@@ -105,4 +108,10 @@ select{
 
 .checkbox-group p, .bullet-group p{
     margin: 5px 0;
+}
+
+textarea{
+    resize: none;
+    font-family: Arial, sans-serif;
+    min-height: 7em;
 }
