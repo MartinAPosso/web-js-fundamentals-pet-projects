@@ -1,0 +1,90 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url("https://images.unsplash.com/photo-1722182877533-7378b60bf1e8?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Zm9uZG8lMjBkZSUyMGxhJTIwYmlibGlvdGVjYXxlbnwwfHwwfHx8MA%3D%3D");
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    
+}
+
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(29, 85, 216, 0.6);
+    width: 100%;
+    height: 100vh;
+}
+
+#survey-form{
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgba(16, 40, 95, 0.76);
+    box-shadow: 0 2px 5px #111;
+
+}
+
+input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    color: #252525;
+}
+
+.form_input{
+    margin-bottom: 25px;
+    
+}
+
+#submit{
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf74;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#submit:hover{
+    background-color: #45a049;
+}
+
+select{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    color: #252525;
+}
+
+#title{
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+#description{
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+    font-weight: 100;
+}
+
+option:hover{
+    background-color: #45a049;
+}
+
+.checkbox-input{
+    display: inline-block;
+    margin: 0;
+    width: 20%;
+}
