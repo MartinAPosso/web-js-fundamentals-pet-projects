@@ -326,3 +326,21 @@ body{
     color: var(--color-text-muted);
     font-size: 0.9rem;
 }
+
+/* @media (max-width: 768px){
+    .nav-links{
+        display: none;
+    }
+
+    .book-grid, .review-grid, .pricing-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-card.featured{
+        transform: none;
+    }
+
+    .hero h1{
+        font-size: 2rem;
+    }
+} */
