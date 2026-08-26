@@ -407,3 +407,42 @@ function getRating(watchList) {
 console.log(getRating(watchList));
 
 
+//EJERCICIO 16
+
+const squareList = arr => {
+  // Only change code below this line
+  return arr.filter(number => number > 0 && number === Math.ceil(number)).map(number => number * number);
+  // Only change code above this line
+};
+
+const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
+console.log(squaredIntegers);
+
+//EJERCICIO 17
+function alphabeticalOrder(arr) {
+  // Only change code below this line
+
+  return arr.sort(function(a, b){
+    return a === b ? 0 : a < b ? -1 : 1;
+  });
+  // Only change code above this line
+}
+
+console.log(alphabeticalOrder(["a", "d", "c", "a", "z", "g"]));
+
+//EJERCICIO 18
+const globalArray = [5, 6, 3, 2, 9];
+
+function nonMutatingSort(arr) {
+  // Only change code below this line
+  let newArray = [];
+  // Si se usa concat antes de sort, ya no se modifica el array original.
+  return arr.concat(newArray).sort(function(a,b){
+    return a-b;
+  });
+
+  // Only change code above this line
+}
+
+console.log(nonMutatingSort(globalArray));
+console.log(globalArray)
