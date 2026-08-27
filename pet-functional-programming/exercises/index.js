@@ -22,7 +22,7 @@ const getTea = (numOfCups) => {
 const tea4TeamFCC = getTea(40);
 // Only change code above this line
 
-
+// ======================================================================================================================================================
 
 // EJERCICIO 2
 
@@ -56,6 +56,8 @@ console.log(
   tea4GreenTeamFCC,
   tea4BlackTeamFCC
 );
+
+// ======================================================================================================================================================
 
 //EJERCICIO 3
 
@@ -104,7 +106,7 @@ const finalTabs = socialWindow
   .join(workWindow.tabClose(1).tabOpen());
 // console.log(finalTabs.tabs);
 
-
+// ======================================================================================================================================================
 
 //EJERCICIO 4
 
@@ -122,6 +124,7 @@ let value = incrementer()
 
 console.log(value)
 
+// ======================================================================================================================================================
 
 //EJERCICIO 5
 // Siempre es mejor que la funcion tome explicitamente una variable externa como argumento en lugar de solo acceder a ella de forma global.
@@ -136,6 +139,7 @@ function incrementer(number) {
   // Only change code above this line
 }
 
+// ======================================================================================================================================================
 
 //EJERCICIO 6
 
@@ -170,6 +174,7 @@ let newBOOkolist = add(bookList, "Arroz con huevo")
 console.log(bookList);
 console.log(newBOOkolist);
 
+// ======================================================================================================================================================
 
 // EJERCICIO 7
 
@@ -297,6 +302,7 @@ const ratings = watchList.map(movie => ({title: movie.Title, rating: movie.imdbR
 
 // console.log(JSON.stringify(ratings));
 
+// ======================================================================================================================================================
 
 // EJERCICIO 8 Construyendo myMap.
 
@@ -317,6 +323,8 @@ console.log(morroco);
 console.log(morroco.myMap(numero => numero * 2).filter(n => n<30));
 console.log(morroco.filter(n => n < 30));
 
+// ======================================================================================================================================================
+
 //EJERCICIO 9
 
 // Only change code below this line
@@ -329,6 +337,7 @@ const filteredList = watchList.map(
 
 console.log(filteredList);
 
+// ======================================================================================================================================================
 
 //EJERCICIO 10 - implementacion de mi propio filter
 
@@ -345,6 +354,7 @@ Array.prototype.myFilter = function(callback) {
   return newArray;
 };
 
+// ======================================================================================================================================================
 
 //EJERCICIO 11
 function sliceArray(anim, beginSlice, endSlice) {
@@ -357,6 +367,8 @@ function sliceArray(anim, beginSlice, endSlice) {
 const inputAnim = ["Cat", "Dog", "Tiger", "Zebra", "Ant"];
 sliceArray(inputAnim, 1, 3);
 
+// ======================================================================================================================================================
+
 // EJERCICIO 12
 function nonMutatingSplice(cities) {
   return cities.slice(0, 3);
@@ -365,6 +377,8 @@ function nonMutatingSplice(cities) {
 const cities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
 
 console.log(nonMutatingSplice(cities));
+
+// ======================================================================================================================================================
 
 // EJERCICIO 13
 function nonMutatingConcat(original, attach) {
@@ -378,6 +392,7 @@ const first = [1, 2, 3];
 const second = [4, 5];
 console.log(nonMutatingConcat(first, second));
 
+// ======================================================================================================================================================
 
 //EJERCICIO 14
 function nonMutatingPush(original, newItem) {
@@ -391,6 +406,7 @@ const first1 = [1, 2, 3];
 const second2 = [4, 5];
 nonMutatingPush(first1, second2);
 
+// ======================================================================================================================================================
 
 //EJERCICIO 15
 function getRating(watchList) {
@@ -406,6 +422,7 @@ function getRating(watchList) {
 
 console.log(getRating(watchList));
 
+// ======================================================================================================================================================
 
 //EJERCICIO 16
 
@@ -418,6 +435,8 @@ const squareList = arr => {
 const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
 console.log(squaredIntegers);
 
+// ======================================================================================================================================================
+
 //EJERCICIO 17
 function alphabeticalOrder(arr) {
   // Only change code below this line
@@ -429,6 +448,8 @@ function alphabeticalOrder(arr) {
 }
 
 console.log(alphabeticalOrder(["a", "d", "c", "a", "z", "g"]));
+
+// ======================================================================================================================================================
 
 //EJERCICIO 18
 const globalArray = [5, 6, 3, 2, 9];
@@ -445,4 +466,142 @@ function nonMutatingSort(arr) {
 }
 
 console.log(nonMutatingSort(globalArray));
-console.log(globalArray)
+console.log(globalArray);
+
+// ======================================================================================================================================================
+
+//EJERCICIO 19
+function splitify(str) {
+  // Only change code below this line
+  return str.split(/[ ,.\-]+/)
+
+  // Only change code above this line
+}
+
+console.log(splitify("Hello World,I-am code"));
+
+// ======================================================================================================================================================
+
+
+//EJERCICIO 20
+function sentensify(str) {
+  // Only change code below this line
+
+  return str.split(/[,.\-]/).join(' ');
+  // Only change code above this line
+}
+
+console.log(sentensify("May-the-force-be-with-you"));
+
+// ======================================================================================================================================================
+
+//EJERCICIO 21
+// Only change code below this line
+function urlSlug(title) {
+
+  return title.toLowerCase().trim().split(/ +/).join('-');
+
+}
+// Only change code above this line
+console.log(urlSlug(" Winter Is  Coming"));
+
+// ======================================================================================================================================================
+
+//EJERCICIO 22
+function checkPositiveEvery(arr) {
+  // Only change code below this line
+  // every() verifica que todos los elementos del arreglo cumplan la condicion. Si uno no cumple entonces retorna el valor de false
+  return arr.every(function(current){
+    return current > 0;
+  });
+  // Only change code above this line
+}
+
+console.log(checkPositiveEvery([1, 2, 3, -4, 5]));
+
+// ======================================================================================================================================================
+
+//EJERCICIO 23
+// some() verifica si almenos uno de los elementos del arreglo cumple con el criterio dado. Con que uno ya cumpla devuelve true.
+function checkPositiveSome(arr) {
+  // Only change code below this line
+  return arr.some(function(current){
+    return current > 0;
+  });
+
+  // Only change code above this line
+}
+
+console.log(checkPositiveSome([1, 2, 3, -4, 5]));
+
+// ======================================================================================================================================================
+
+// ======================================================================================================================================================
+
+
+//EJERCICIO 24
+// Currying una funcion implica que una funcion pase de ser de N argumentos, a varias funciones anidadas de un solo argumento.
+// Lo siguiente es un ejemplo de como es una funcion curried.
+const curried = x => y => x+y;
+
+/*
+  La misma funcion se puede expresar con la estructura clasica:
+  function curried(x){
+    return function(y){
+      return x + y;
+    }
+  }
+*/
+
+//Ejemplo de uso:
+console.log(curried(5)(7));
+
+//Otro ejemplo de uso que se le puede dar a estos tipos de fuciones es en caso de que no se sepan todos los argumentos. Por lo tanto solo se almacene la primera función en una variable y después ya cuando el otro argumento esté disponible simplemente se llama a la variable donde se guardó la llamada a la función. A continuación se muestra:
+
+const funcionParaY = curried(8); // x = 8
+console.log(funcionParaY(10)); // y = 10, entonces el return final será 18 y eso se imprime. 
+
+/*
+  Ahora hay otro concepto importante llamado 'impartial application'. Básicamente consiste en crear una copia de la función con algunos argumentos pre-configurados. Ejemplo:
+
+  function impartial(x, y, z) {
+    return x + y + z;
+  }
+
+  const partialFn = impartial.bind(this, 1, 2);
+  partialFn(10); // 13
+  
+  Esto se hace usando bind(thisArg, arg1, arg2, ..., argN). Los argumentos  de significan:
+  - thisArg: es básicamente el valor que se quiere que tenga this dentro de la función, si la función original no usa esta palabra clave resulta incluso innecesaria y se podría colocar simplemente el valor de null en este parámetro.
+  - arg1, arg2, ..., argN: Son los que se quiere pre-configurar en la nueva función. Como se pueden colocar N argumentos, entonces si se colocan más argumentos que los que admite la función original simplemente se ignoran.
+
+  Ejemplo:
+  function suma(a, b) {
+    return a + b;
+  }
+
+  También se ignoran si en la nueva función se colocan más argumentos de los que admite la copia de la fución creada con bind()
+  const f = suma.bind(null, 1, 2, 3, 4); // 3 y 4 sobran
+  f(); // 3   (1 + 2, los extras se descartan y se ignoran)
+
+
+  const partialFn = impartial.bind(null, 1, 2);
+  partialFn(10, 20, 30); // 13 — solo se usa el 10 (z), 20 y 30 sobran por lo que se ignoran.
+
+
+*/
+
+
+function add(x) {
+  // Only change code below this line
+  return function(y){
+    return function(z){
+      return x + y + z;
+    }
+  }
+
+  // Only change code above this line
+}
+
+console.log(add(10)(20)(30));
+
