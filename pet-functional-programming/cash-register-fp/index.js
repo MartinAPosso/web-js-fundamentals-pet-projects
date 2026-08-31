@@ -5,6 +5,23 @@ function sumTotalCid(cid){
     return cid.reduce((sum, [,value]) => sum + value, 0)
 }
 
+function calculateChange(cidInCents, due){
+    return cidInCents.reduce((accumulator, [name, available, unitValue]) => {
+        if(accumulator.due === 0) return accumulator;
+
+        const maxUsable = Math.min(accumulator.due, available);
+    
+        const amountToUse = Math.floor(maxUsable / unitValue) * unitValue;
+        
+        if(amountToUse === 0) return accumulator;
+
+        return {
+            due: accumulator.due - amountToUse,
+            change: [...accumulator.change, [name, amountToUse/100]]
+        };
+            
+    }, { due: due , change: [] })
+}
 
 function checkCashRegister(price, cash, cid) {
     const dueChange = parseFloat((cash - price).toFixed(2));
@@ -12,15 +29,12 @@ function checkCashRegister(price, cash, cid) {
     // Ordenando de mayor a menor el cid, y transformado su valor a centavos
     const cidInCents = MONEY_VALUE.map(([name, unitValue]) => {
         const found = cid.find(([cidName]) => cidName === name);
-        // console.log(found);
         const available = found?Math.round(found[1] * 100):0;
-        // console.log(available);
         return [name, available, unitValue];
     });
 
     // Calculando total de dinero en la caja 
     const totalCid = sumTotalCid(cidInCents);
-    // console.log(totalCid);
     const due = Math.round(dueChange * 100);
 
     if(totalCid < due){
@@ -31,30 +45,9 @@ function checkCashRegister(price, cash, cid) {
         return {status: 'CLOSED', change: cid};
     }
     
-    const result = cidInCents.reduce((accumulator, [name, available, unitValue]) => {
-        if(accumulator.due === 0) return accumulator;
-
-        const maxUsable = Math.min(accumulator.due, available);
-        // console.log('Moneda: ' + name);
-        // console.log("Deuda " + accumulator.due);
-        // console.log("maxUsable: " + maxUsable);
-        // console.log("Numero de monedas/billetes: " + maxUsable/unitValue);
-        const amountToUse = Math.floor(maxUsable / unitValue) * unitValue;
-        
-        // console.log("amount to use " + amountToUse);
-
-        if(amountToUse === 0) return accumulator;
-
-        return {
-            due: accumulator.due - amountToUse,
-            change: [...accumulator.change, [name, amountToUse/100]]
-        };
-            
-    }, { due: due , change: [] })
+    const result = calculateChange(cidInCents, due);
 
     if(result.due > 0) return {status: 'INSUFFICIENT_FUNDS', change: []};
-
-
 
     return {status: 'OPEN', change: result.change};
 }
