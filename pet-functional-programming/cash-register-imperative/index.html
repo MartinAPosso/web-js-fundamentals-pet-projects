@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="grid"></div>
+<button id="next">Next generation</button>
+
+<script>
+  const WIDTH = 12, HEIGHT = 12;
+
+  function randomGrid() {
+    let grid = [];
+    for (let i = 0; i < WIDTH * HEIGHT; i++) {
+      grid.push(Math.random() < 0.3);
+    }
+    return grid;
+  }
+
+  function countNeighbors(grid, x, y) {
+    let count = 0;
+    for (let dy = -1; dy <= 1; dy++) {
+      for (let dx = -1; dx <= 1; dx++) {
+        if (dx == 0 && dy == 0) continue;
+        let nx = x + dx, ny = y + dy;
+        if (nx >= 0 && nx < WIDTH && ny >= 0 && ny < HEIGHT) {
+          if (grid[ny * WIDTH + nx]) count++;
+        }
+      }
+    }
+    return count;
+  }
+
+  function nextGeneration(grid) {
+    let next = [];
+    for (let y = 0; y < HEIGHT; y++) {
+      for (let x = 0; x < WIDTH; x++) {
+        let alive = grid[y * WIDTH + x];
+        let n = countNeighbors(grid, x, y);
+        if (alive) {
+          next.push(n == 2 || n == 3);
+        } else {
+          next.push(n == 3);
+        }
+      }
+    }
+    return next;
+  }
+
+  let state = randomGrid();
+
+  function drawGrid(grid) {
+    let gridEl = document.querySelector("#grid");
+    gridEl.textContent = "";
+    for (let y = 0; y < HEIGHT; y++) {
+      for (let x = 0; x < WIDTH; x++) {
+        let index = y * WIDTH + x;
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = grid[index];
+        checkbox.dataset.index = index;
+        checkbox.addEventListener("change", () => {
+          state[index] = checkbox.checked;
+        });
+        gridEl.appendChild(checkbox);
+      }
+      gridEl.appendChild(document.createElement("br"));
+    }
+  }
+
+  drawGrid(state);
+
+  document.querySelector("#next").addEventListener("click", () => {
+    state = nextGeneration(state);
+    drawGrid(state);
+  });
+</script>
+    <!-- <script src="index.js"></script> -->
+</body>
+</html>
